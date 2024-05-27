@@ -74,6 +74,7 @@ def select_random_block(grid, block_size=128):
     block_mask[start_row:start_row + block_rows, start_col:start_col + block_cols] = True
     in_block = block_indices[block_mask]
     outside_block = block_indices[~block_mask]
+    np.random.shuffle(outside.block)
 
     new_indices = np.concatenate([outside_block, in_block])
     return new_indices
@@ -89,10 +90,11 @@ def grid_indexes(size: int):
 def skip_rows_cols(grid):
     reduced_grid = grid[::2, ::2]
     reduced_grid_flat = reduced_grid.flatten()
+    
     grid_flat = grid.flatten()
 
     mask = np.isin(grid_flat, reduced_grid_flat)
-
+    np.random.shuffle(reduced_grid_flat)
     forward_indexes = np.concatenate((reduced_grid_flat, grid_flat[~mask]))
     backward_indexes = np.argsort(forward_indexes)
     return forward_indexes, backward_indexes
