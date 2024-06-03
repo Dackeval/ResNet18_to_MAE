@@ -1,4 +1,4 @@
-# DD2424 From ResNet to MAE
+# From ResNet to MAE
 
 This repo is for DD2424 course project, May, 2024.
 
@@ -10,3 +10,5 @@ This repo is for DD2424 course project, May, 2024.
     - Pre-trained models for experiments contained.
 - MAE results: MAE experiment logs, visualization.
  
+
+Written by: Sigvard Dackevall, Tobias Lee, Aqsa Kausar
